@@ -23,6 +23,7 @@ end
   end
 end
 
-execute "echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:#{node[:tmux][:prefix]}/lib' >> #{node[:tmux][:profile]}" do
-  not_if check_command
+export_line = "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:#{node[:tmux][:prefix]}/lib"
+execute "echo '#{export_line}' >> #{node[:tmux][:profile]}" do
+  not_if "grep '#{export_line}' #{node[:tmux][:profile]}"
 end
