@@ -22,3 +22,7 @@ end
     not_if check_command
   end
 end
+
+execute "echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:#{node[:tmux][:prefix]}/lib' >> #{node[:tmux][:profile]}" do
+  not_if check_command
+end

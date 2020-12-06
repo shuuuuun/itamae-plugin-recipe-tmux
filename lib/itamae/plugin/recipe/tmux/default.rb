@@ -4,6 +4,7 @@ node.reverse_merge!(
   tmux: {
     version: "2.1",
     prefix: "/home/#{username}/local",
+    profile: "/home/#{username}/.bash_profile",
   },
   libevent: {
     version: "2.0.22",
